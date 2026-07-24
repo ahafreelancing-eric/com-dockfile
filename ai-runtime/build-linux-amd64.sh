@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-IMAGE_NAME="${1:-ubuntu22-dev-ai:linux-amd64}"
+IMAGE_NAME="${1:dengfuyuan84/ai-runtime:latest}"
 
 if ! docker buildx version >/dev/null 2>&1; then
   echo "docker buildx is required to build a linux/amd64 image on non-amd64 hosts." >&2

@@ -1,4 +1,4 @@
-$ImageName = if ($args.Count -ge 1) { $args[0] } else { "ubuntu22-dev-ai:linux-amd64" }
+$ImageName = if ($args.Count -ge 1) { $args[0] } else { "dengfuyuan84/ai-runtime:latest" }
 
 docker buildx version *> $null
 if ($LASTEXITCODE -ne 0) {

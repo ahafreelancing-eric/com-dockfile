@@ -28,7 +28,7 @@ New-Item -ItemType Directory -Path $tempProject | Out-Null
 
 try {
     Push-Location $tempProject
-    npm install --cache $cacheDir --package-lock=false --ignore-scripts --no-audit --no-fund @Packages
+    npm install --registry https://registry.npmjs.org --cache $cacheDir --package-lock=false --ignore-scripts --no-audit --no-fund @Packages
     if ($LASTEXITCODE -ne 0) {
         throw "npm install failed with exit code $LASTEXITCODE."
     }

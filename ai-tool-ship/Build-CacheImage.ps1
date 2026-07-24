@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string] $Image = "ai-tool-ship:npm-cache"
+    [string] $Image = "dengfuyuan84/ai-tool-ship:latest"
 )
 
 $ErrorActionPreference = "Stop"

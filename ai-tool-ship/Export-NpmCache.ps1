@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string] $Image = "ai-tool-ship:npm-cache",
+    [string] $Image = "dengfuyuan84/ai-tool-ship:latest",
     [string] $Destination = (Join-Path (Split-Path -Parent $PSCommandPath) "exported-npm-cache")
 )
 
