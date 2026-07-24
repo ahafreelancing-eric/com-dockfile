@@ -1,12 +1,15 @@
-FROM ubuntu:22.04
+ARG TARGETPLATFORM=linux/amd64
 
+FROM --platform=${TARGETPLATFORM} ubuntu:22.04
+
+ARG TARGETPLATFORM=linux/amd64
 ARG DEBIAN_FRONTEND=noninteractive
 ARG TZ=Asia/Shanghai
 
 ENV LANG=C.UTF-8 \
     LC_ALL=C.UTF-8 \
     TZ=${TZ} \
-    NPM_CONFIG_CACHE=/opt/npm-cache
+    DOCKER_IMAGE_TARGET_PLATFORM=${TARGETPLATFORM}
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -67,12 +70,12 @@ RUN apt-get update \
     && javac_path="$(readlink -f "$(command -v javac)")" \
     && java_home_dir="$(dirname "$(dirname "${javac_path}")")" \
     && ln -s "${java_home_dir}" /opt/java/zulu \
-    && mkdir -p "${NPM_CONFIG_CACHE}" \
     && npm install -g \
         @anthropic-ai/claude-code \
         opencode-ai \
+    && npm cache clean --force \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* /root/.npm
 
 ENV JAVA_HOME=/opt/java/zulu \
     PATH=/opt/java/zulu/bin:${PATH}

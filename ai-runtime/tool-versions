@@ -10,6 +10,7 @@ check() {
 }
 
 check "ubuntu" lsb_release -ds
+check "platform" uname -m
 check "java" java -version
 check "node" node --version
 check "npm" npm --version
