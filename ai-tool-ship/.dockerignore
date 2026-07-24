@@ -1,0 +1,6 @@
+# The cache itself must remain in the Docker build context.
+
+.git
+.gitignore
+README.md
+\*.log
