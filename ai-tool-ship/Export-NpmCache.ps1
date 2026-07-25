@@ -24,4 +24,4 @@ finally {
 }
 
 Write-Host "Cache exported to: $Destination"
-Write-Host "Use it with: npm install --offline --cache `"$Destination`" <package>"
+Write-Host "Use it with: npm install --registry https://registry.npmjs.org --offline --cache `"$Destination`" <package>"
